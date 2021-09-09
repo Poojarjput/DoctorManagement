@@ -1,7 +1,6 @@
 package com.htc.clinicmanagement.entity;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,17 +20,17 @@ public class Doctor implements Serializable {
 	private long doctorId;
 	private String doctorName;
 	private long appointmentId;
-	private LocalDate appointmentDate;
+	
 	public Doctor() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Doctor(long doctorId, String doctorName, long appointmentId, LocalDate appointmentDate) {
+	public Doctor(long doctorId, String doctorName, long appointmentId) {
 		super();
 		this.doctorId = doctorId;
 		this.doctorName = doctorName;
 		this.appointmentId = appointmentId;
-		this.appointmentDate = appointmentDate;
+		
 	}
 	
 	
@@ -53,12 +52,7 @@ public class Doctor implements Serializable {
 	public void setAppointmentId(long appointmentId) {
 		this.appointmentId = appointmentId;
 	}
-	public LocalDate getAppointmentDate() {
-		return appointmentDate;
-	}
-	public void setAppointmentDate(LocalDate appointmentDate) {
-		this.appointmentDate = appointmentDate;
-	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -85,7 +79,7 @@ public class Doctor implements Serializable {
 	@Override
 	public String toString() {
 		return "Doctor Details are..... [Doctor Id Is.....=" + doctorId + ", Doctor Name Is=" + doctorName + ", Appointment Id Is....=" + appointmentId
-				+ ", Appointment Date Is....=" + appointmentDate + "]";
+				+  "]";
 	}
 	
 	

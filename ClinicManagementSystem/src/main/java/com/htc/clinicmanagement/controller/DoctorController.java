@@ -43,7 +43,7 @@ public class DoctorController {
 		
 	}
 	
-	@GetMapping("/doctors/{appointmentId}")
+	@GetMapping("/appointments/{appointmentId}")
 	Doctor getDoctorbyAppointmentId(@PathVariable Long appointmentId)
 	{
 		Doctor doctor=null;
