@@ -6,7 +6,6 @@ import com.htc.clinicmanagement.entity.Doctor;
 
 public interface IDoctor extends JpaRepository<Doctor, Long> {
 	
-	public Doctor findDoctordetailsByappointmentID(Long doctorId) ;
 	
 	
 

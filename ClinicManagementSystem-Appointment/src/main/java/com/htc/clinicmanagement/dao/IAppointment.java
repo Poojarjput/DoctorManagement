@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.htc.clinicmanagement.entity.Appointment;
 
 public interface IAppointment extends JpaRepository<Appointment, Long> {
+	
+	public Appointment getdetailsByPatientId(long patientId);
 
 }

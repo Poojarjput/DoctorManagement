@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.htc.clinicmanagement.dao.AppointmentImplementation;
 import com.htc.clinicmanagement.dao.IAppointment;
 import com.htc.clinicmanagement.entity.Appointment;
 
@@ -22,8 +23,11 @@ public class AppointmentController {
 	@Autowired
 	private IAppointment repo;
 	
+	@Autowired
+	private AppointmentImplementation appointmentImplementation;
+	
 	 @GetMapping("/appointments")
-	  public List<Appointment> getAllDoctordetails() {
+	  public List<Appointment> getAllAppointmentsdetails() {
 	   
 	    List<Appointment> list = new ArrayList<>();
 	    Iterable<Appointment> appointments = repo.findAll();
@@ -39,6 +43,15 @@ public class AppointmentController {
 	{
 		Appointment appointment=null;
 		appointment=repo.findById(appointmentId).get();//Due to lazy loading in JPA instead of repo.getOne(id)
+		return appointment;
+		
+	}
+	
+	@GetMapping("/appointmentbypatient/{patientId}")
+	Appointment getDoctorbypatientId(@PathVariable Long patientId)
+	{
+		Appointment appointment=null;
+		appointment=appointmentImplementation.getdetailsByPatientId(patientId);
 		return appointment;
 		
 	}

@@ -43,14 +43,7 @@ public class DoctorController {
 		
 	}
 	
-	@GetMapping("/appointments/{appointmentId}")
-	Doctor getDoctorbyAppointmentId(@PathVariable Long appointmentId)
-	{
-		Doctor doctor=null;
-		doctor=repo.findById(appointmentId).get();//Due to lazy loading in JPA instead of repo.getOne(id)
-		return doctor;
-		
-	}
+	
 	
 	@PostMapping("/doctors")
 	Doctor createDoctordetails(@RequestBody Doctor doctor)
